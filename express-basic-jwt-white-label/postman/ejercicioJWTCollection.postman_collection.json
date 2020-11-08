@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "0de98045-c0e7-470c-af48-b58fc84092be",
+		"name": "ejercicioJWTCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"user1\",\r\n    \"password\":\"user1\",\r\n    \"role\":\"none\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "11035728-4926-44fb-a339-4c28ecaab615",
+						"exec": [
+							"pm.collectionVariables.set(\"token\", pm.response.json().token);\r",
+							"pm.collectionVariables.set(\"role\", pm.response.json().role);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"user1\",\r\n    \"password\":\"user1\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSeller",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"userSeller\",\r\n    \"password\":\"userSeller\",\r\n    \"role\":\"seller\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginSeller",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "49801157-f06d-44ca-a9f3-f58c029928a0",
+						"exec": [
+							"pm.collectionVariables.set(\"token\", pm.response.json().token);\r",
+							"pm.collectionVariables.set(\"role\", pm.response.json().role);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"userSeller\",\r\n    \"password\":\"userSeller\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createOwner",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"userOwner\",\r\n    \"password\":\"userOwner\",\r\n    \"role\":\"owner\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginOwner",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "358f96e6-1734-4935-999d-2a89dc6909cd",
+						"exec": [
+							"pm.collectionVariables.set(\"token\", pm.response.json().token);\r",
+							"pm.collectionVariables.set(\"role\", pm.response.json().role);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"userOwner\",\r\n    \"password\":\"userOwner\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProductos",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2a3116c4-d677-4cd2-a096-1601ab953d6a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createProducto",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6d5ed65a-0e5d-4f27-bb6e-a8ae65f1f136",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"nombreProducto\": \"Té de frutos rojos\",\r\n    \"idProveedor\": \"1\",\r\n    \"idCategoria\": \"1\",\r\n    \"cantidadPorUnidad\": \"10 cajas x 20 bolsas\",\r\n    \"precioUnidad\": \"18\",\r\n    \"unidadesEnExistencia\": \"39\",\r\n    \"unidadesEnPedido\": \"0\",\r\n    \"nivelNuevoPedido\": \"10\",\r\n    \"suspendido\": \"0\",\r\n    \"categoriaProducto\": \"Categoria D\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editProducto",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a68dc40c-c73b-4744-8444-e59595229cdd",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"nombreProducto\": \"Té de frutos verdes\",\r\n    \"idProveedor\": \"1\",\r\n    \"idCategoria\": \"1\",\r\n    \"cantidadPorUnidad\": \"10 cajas x 20 bolsas\",\r\n    \"precioUnidad\": \"18\",\r\n    \"unidadesEnExistencia\": \"39\",\r\n    \"unidadesEnPedido\": \"0\",\r\n    \"nivelNuevoPedido\": \"10\",\r\n    \"suspendido\": \"0\",\r\n    \"categoriaProducto\": \"Categoria D\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1d7b9c21-316b-4198-b64a-cf1a263b20e2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "95ad5d9e-8d8e-45b8-b691-edf558bc1a57",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "5299e16a-dad7-4b0a-880e-17d9e64c5032",
+			"key": "token",
+			"value": ""
+		},
+		{
+			"id": "d2c34797-1920-44dc-9452-d51ceaf50f14",
+			"key": "role",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}
